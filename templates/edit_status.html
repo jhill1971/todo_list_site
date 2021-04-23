@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Status</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+<body>
+     <form action="{{ url_for('edit') }}" method="POST">
+        <p>Task: {{task.text}}</p>
+        <p>Current Status {{task.complete}}</p>
+         <input hidden="hidden" name="id" value="{{task.id}}">
+        <input name="complete" type="text" placeholder="New Status">
+        <button type="submit">Change Status (complete/incomplete)</button>
+    </form>
+</body>
+</html>

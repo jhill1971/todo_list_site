@@ -1,0 +1,40 @@
+* {
+    font-family: "Arial", sans-serif;
+    font-size: x-large;
+    text-align:center;
+}
+
+body {
+    background-color: #394867;
+    text-color: #14274e
+
+}
+
+header {
+    font-size: xx-large !important;
+    background-color: #9ba4b4;
+    text-align: center;
+
+}
+
+ul li{
+    background: #9ba4b4;
+    list-style-position: inside;
+    align:center;
+}
+
+.button {
+    background-color: gray;
+    border-radius: 8px;
+    border: none;
+    color: #f1f6f9;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+footer{
+p {font-size: small !important;}
+}

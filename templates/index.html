@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+<body>
+<header>
+<h1>To-do List</h1>
+<h2>Let's Get Things Done</h2>
+<p>Add tasks to do, then change their status to complete as you finish them!</p>
+</header>
+
+<img src="https://media.giphy.com/media/w0CPP48tkM6Ag/giphy.gif">
+    {% if list == []: %}
+    <p>List is empty. What shall we do today?</p>
+    {% endif %}
+    <ul>
+        {% for task in tasks %}
+        <li>
+            <a href="{{ url_for('delete', id=task.id) }}">Delete</a>
+            {{task.text}} - {{task.complete}}
+            <a href="{{ url_for('edit', id=task.id) }}">Edit Status</a>
+        </li>
+        {% endfor %}
+    </ul>
+<button><a href="{{ url_for('add') }}">Add New Task</a></button>
+<footer>
+    <p>©2021 James C. Hill</p>
+</footer>
+</body>
+</html>
