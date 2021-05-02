@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity=
+            "sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity=
+            "sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
 </head>
 <body>
 <header>
-<h1>To-do List</h1>
-<h2>Let's Get Things Done</h2>
-<p>Add tasks to do, then change their status to complete as you finish them!</p>
+    <h1>To-do List</h1>
+    <h2>Let's Get Things Done</h2>
+    <p>Add tasks to do, then change their status to complete as you finish them!</p>
 </header>
-
-<img src="https://media.giphy.com/media/w0CPP48tkM6Ag/giphy.gif">
-    {% if list == []: %}
-    <p>List is empty. What shall we do today?</p>
-    {% endif %}
-    <ul>
-        {% for task in tasks %}
-        <li>
-            <a href="{{ url_for('delete', id=task.id) }}">Delete</a>
-            {{task.text}} - {{task.complete}}
-            <a href="{{ url_for('edit', id=task.id) }}">Edit Status</a>
-        </li>
-        {% endfor %}
-    </ul>
-<button><a href="{{ url_for('add') }}">Add New Task</a></button>
+<div class="text-center">
+    <img src="https://media.giphy.com/media/w0CPP48tkM6Ag/giphy.gif">
+</div>
+<br>
+{% if list == []: %}
+<p>List is empty. What shall we do today?</p>
+{% endif %}
+<ul>
+{% for task in tasks %}
+<li class="text-muted">
+    <a href="{{ url_for('delete', id=task.id) }}">Delete</a>
+    {{task.text}} - {{task.complete}}
+    <a href="{{ url_for('edit', id=task.id) }}">Edit Status</a>
+</li>
+{% endfor %}
+</ul>
+<br>
+<div class="text-center">
+    <button type="button" class="btn btn-light"><a href="{{ url_for('add') }}">Add New Task</a></button>
+</div>
+<br>
 <footer>
-    <p>©2021 James C. Hill</p>
+    <p class="text-muted">©2021 James C. Hill</p>
 </footer>
 </body>
 </html>
